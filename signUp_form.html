@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha385-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css_singUp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cantata+One&family=Concert+One&family=Fredoka+One&family=Vidaloka&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+        <title>Register Member-Flower Bloom Café</title>
+</head>
+<body>
+    <div class="container-fluid main">
+
+        <!-- ชื่อร้านโลโก้ -->
+        <div class="row justify-content-md-center head">
+            <div class="col-12 col-md-8">
+                <img src="./pic/logo register.png" class="logo mx-auto d-block img-fluid" alt="">
+                <h2 class="text-center txt-header">Register Member</h2>
+            </div>
+        </div>
+
+        <!-- กรอกฟอร์ม -->
+        <div class="row justify-content-md-center">    
+            <div class="col-md-6 ">
+            <form action="#">
+                <div class="main-box">        
+                    <div class="form-group">
+                        <lable class="text">E-mail</label>
+                        <input class="form-control" type="email" placeholder="Please enter your e-mail" id="txt_email" required>
+                    </div>
+
+                <div class="row txt-input">    
+                    <div class="col-6 ">
+                    <div class="form-group ">
+                        <lable class="text">Password</label>
+                        <input class="form-control" type="password" placeholder="Please enter your Password" id="txt_password" required>
+                    </div>
+                    </div>
+
+                    <div class="col-6 ">
+                    <div class="form-group">
+                        <lable class="text">Confirm Password</label>
+                        <input class="form-control" type="password" placeholder="Confirm your password" id="txt_confirmpass" required>
+                    </div>
+                    </div>
+                </div>
+               
+                <div class="row txt-input">    
+                    <div class="col-6">
+                    <div class="form-group">
+                        <lable class="text">Name</label>
+                        <input class="form-control" type="text" placeholder="Please enter your name" id="txt_name" required>
+                    </div>
+                    </div>
+
+                    <div class="col-6">
+                    <div class="form-group">
+                        <lable class="text">Lastname</label>
+                        <input class="form-control" type="text" placeholder="Please enter your lastname" id="txt_lastname" required>
+                    </div>
+                    </div>
+                </div>
+
+                    <div class="form-group txt-input">
+                        <lable class="text">Phone Number</label>
+                        <input class="form-control" type="text" placeholder="Phone number" id="txt_phone" required>
+                    </div>
+
+                    <div class="form-group txt-input">
+                        <label class="text">Birthday</label>
+                        <input class="form-control" type="date" id="txt_birthday" required>
+                    </div>
+
+                    <div class="form-group txt-input">
+                        <lable class="text">Gender</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="checkGender" id="radio_male" value="Male">
+                                <label class="form-check-label" for="radio_male">Male</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="checkGender" id="radio_female" value="Female">
+                                <label class="form-check-label" for="radio_female">Female</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="checkGender" id="radio_other" value="Other">
+                                <label class="form-check-label" for="radio_other">Other</label>
+                              </div>  
+                    </div>
+                </div>
+
+                <!-- ปุ่ม -->
+               <div class="btn_regis row justify-content-md-center ">
+                    <div class="d-grid col-6 mx-auto">
+                        <button onclick="regis()" id= "btn_register" class="btn btn-primary" type="button">Register</button>
+                      </div>
+                </div>
+                       
+            </form>
+        
+        </div>
+        </div>
+
+    
+   
+    </div>
+</body>
+<script>
+    
+    
+    
+    function regis() {
+
+        let getEmail = document.getElementById("txt_email").value;
+        let getPass = document.getElementById("txt_password").value;
+        let getConfirmPass = document.getElementById("txt_confirmpass").value;
+        let getName = document.getElementById("txt_name").value;
+        let getLastname= document.getElementById("txt_lastname").value;
+        let getPhone = document.getElementById("txt_phone").value;
+        let getBirthday = document.getElementById("txt_birthday").value;
+
+        let getMale = document.getElementById("radio_male").checked;
+        let getFemale = document.getElementById("radio_female").checked;
+        let getOthergender = document.getElementById("radio_other").checked;
+        let gender = "";
+        let isSuccess = false;
+
+        // เช็ค user กดเลือกเพศอะไร
+        if(getMale == true){
+            gender = document.getElementById("radio_male").value
+            console.log(gender)
+        }
+        if(getFemale == true){
+            gender = document.getElementById("radio_female").value
+            console.log(gender)
+        }
+        if(getOthergender == true){
+            gender = document.getElementById("radio_other").value
+            console.log(gender)
+        }
+        
+    
+// เช็คการกรอกข้อมูลของuser ใส่ครบไหม
+        if (getEmail == "" ||getEmail == null){
+            isSuccess = false; 
+            Swal.fire({
+            icon: 'error',
+            title: 'Please enter your e-mail!'
+            })
+            
+        }
+        else if (getPass == "" ||getPass == null){
+            isSuccess = false;
+            Swal.fire({
+            icon: 'error',
+            title: 'Please enter your password'
+            }) 
+            
+        }  
+        
+        else if (getConfirmPass == "" ||getConfirmPass == null){
+            isSuccess = false;
+            Swal.fire({
+            icon: 'error',
+            title: 'Please confirm your password'
+            }) 
+        }
+
+        else if (getName == "" ||getName == null){
+            isSuccess = false;
+            Swal.fire({
+            icon: 'error',
+            title: 'Please enter your name'
+            }) 
+            
+        }      
+        else if (getLastname == "" ||getLastname == null){
+            isSuccess = false;
+            Swal.fire({
+            icon: 'error',
+            title: 'Please enter your lastname'
+            }) 
+            
+        } 
+        else if (getPhone == "" ||getPhone == null){
+            isSuccess = false;
+            Swal.fire({
+            icon: 'error',
+            title: 'Please enter your phone number'
+            })
+            
+        }     
+        else if (getBirthday == "" ||getBirthday == null){         
+            isSuccess = false;
+            Swal.fire({
+            icon: 'error',
+            title: 'Please enter your birthday'
+            }) 
+            
+        }
+        else if (gender == "" || gender == null){         
+             isSuccess = false;
+             Swal.fire({
+            icon: 'error',
+            title: 'Please select your gender'
+            }) 
+           
+        }
+        
+            else {
+        isSuccess = true
+       }
+
+         // เช็ค password user 
+        if ( getPass !="" && getConfirmPass != "" ) {
+            if (getPass != getConfirmPass){
+                isSuccess = false;  
+            Swal.fire({
+            icon: 'error',
+            title: 'Password is not matching'
+            })   
+            }
+            else {
+        isSuccess = true
+       }
+        }
+   
+         
+        if (isSuccess == true){
+            Swal.fire({
+            icon: 'success',
+            title: 'Register'
+            })
+        }
+
+       console.log(isSuccess)
+    }
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha385-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>
